@@ -1,4 +1,11 @@
+// Importamos Component.
 import { Component } from '@angular/core';
+
+// Importamos jsPDF para crear documentos PDF.
+import jsPDF from 'jspdf';
+
+// Importamos autoTable para crear tablas dentro del PDF.
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-compras-component',
@@ -6,4 +13,52 @@ import { Component } from '@angular/core';
   styleUrl: './compras-component.css',
   templateUrl: './compras-component.html',
 })
-export class ComprasComponent {}
+export class ComprasComponent {
+
+    // Método que genera el documento.
+    generarDocumento(): void {
+
+        // Creamos un documento PDF nuevo.
+        let documento: jsPDF = new jsPDF();
+
+        // Establecemos el tamaño de letra.
+        documento.setFontSize(18);
+
+        // Escribimos un texto en el PDF.
+        // 10 = posición horizontal.
+        // 10 = posición vertical.
+        documento.text("Mis compras", 10, 10);
+
+
+        // Creamos los encabezados de la tabla.
+        const headers = [
+            ["Nombre", "Marca", "Precio"]
+        ];
+
+        // Creamos los datos de la tabla.
+        const data = [
+            ["Kylin Pillow 3x3", "Yuxin · 3x3", "6.00 €"],
+            ["Megaminx", "ShengShou Cube · Megaminx", "3.00 €"],
+            ["Shield", "DianSheng · 4x4", "10.00 €"],
+            ["Sandwich", "QiYi MoFangGe · Gear · 4x4", "3.00 €"],
+        ];
+
+
+        // Insertamos la tabla en el documento.
+        autoTable(documento, {
+
+            // Encabezados.
+            head: headers,
+
+            // Filas.
+            body: data,
+
+            // Posición vertical inicial.
+            startY: 20
+
+        });
+        // Descargamos el PDF.
+        documento.save("Compras.pdf");
+
+    }
+}

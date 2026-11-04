@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cubos } from '../../models/cubos';
 import { ServiceCubos } from '../../services/service.cubos';
@@ -18,7 +18,8 @@ export class CubosComponent implements OnInit {
 
     constructor(
         private _service: ServiceCubos,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _cdr: ChangeDetectorRef,
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -27,6 +28,7 @@ export class CubosComponent implements OnInit {
             this.marcaSeleccionada = marca;
             await this.cargarCubos(marca);
         });
+        this._cdr.detectChanges();
     }
 
     private async cargarCubos(marca: string | null): Promise<void> {
@@ -39,6 +41,7 @@ export class CubosComponent implements OnInit {
             this.error = 'No se pudieron cargar los cubos.';
             console.error(this.error, error);
         }
+        this._cdr.detectChanges();
     }
 
     seleccionarFavorito(cubo: Cubos): void {

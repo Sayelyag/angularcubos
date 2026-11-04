@@ -14,7 +14,6 @@
         >
              Cubos de Rubik
         </h1>
-
         <p style="color: #4d82be; font-size: 1.1rem;">
             Descubre nuestra colección de cubos
         </p>
@@ -59,8 +58,11 @@
             "
         >
             <h2 class="fw-bold mb-3" style="color: #005187;">
-                ★ Tu cubo favorito
+                Cubo favorito seleccionado:
             </h2>
+
+            <img [src]="cuboFavorito.imagen" [alt]="cuboFavorito.nombre"s
+            style="max-width: 150px; border-radius: 8px; margin-bottom: 15px;">
 
             <p class="mb-0 fs-5" style="color: #4d82be;">
                 {{ cuboFavorito.nombre }} - {{ cuboFavorito.marca }}

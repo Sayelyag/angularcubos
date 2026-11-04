@@ -44,7 +44,7 @@ export class ServiceCubos{
     async postLogin(credenciales: Credencial): Promise<any> {
 
         // Endpoint al que vamos a enviar la petición.
-        let endpoint = "auth/login";
+        let endpoint = "api/Manage/Login";
 
         // Convertimos el objeto de credenciales a JSON.
         let json = JSON.stringify(credenciales);

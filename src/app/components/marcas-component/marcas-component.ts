@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cubos } from '../../models/cubos';
 import { ServiceCubos } from '../../services/service.cubos';
@@ -15,9 +15,11 @@ export class MarcasComponent implements OnInit {
   public marcaSeleccionada: string | null = null;
   public error = '';
 
+
   constructor(
     private readonly serviceCubos: ServiceCubos,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private _cdr: ChangeDetectorRef,
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -38,5 +40,6 @@ export class MarcasComponent implements OnInit {
       this.error = 'No se pudieron cargar las marcas.';
       console.error(this.error, error);
     }
+    this._cdr.detectChanges();
   }
 }

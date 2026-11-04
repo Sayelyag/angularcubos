@@ -9,33 +9,22 @@
     <div class="container-fluid">
 
         <!-- Logo -->
-        <!-- <a class="navbar-brand" href="#" style="
+        <a class="navbar-brand" href="#" style="
             border-radius: 8px;
             transition: transform 0.2s ease;
         "
         onmouseover="this.style.transform='scale(1.05)'"
         onmouseout="this.style.transform='scale(1)'">
             <img
-                src="/assets/ace.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;"
-                alt="Logo"
-            />
-        </a> -->
-
-        <!-- Login -->
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']" style="
-            color: #feffff;
-            font-weight: 600;
-            padding: 10px 16px;
-            border-radius: 7px;
-            transition: color 0.2s ease, background-color 0.2s ease;
-            "
-            onmouseover="this.style.color='#005187'; this.style.backgroundColor='#c4dafa'"
-            onmouseout="this.style.color='#feffff'; this.style.backgroundColor='transparent'">
-                Login
-          </a>
-        </li>
+              src="assets/ace.jpg"
+              alt="Logo"
+              width="50"
+              height="50"
+              style="object-fit: cover; border-radius: 50%; display: block;"
+              onmouseover="this.style.transform='scale(1.1)'"
+              onmouseout="this.style.transform='scale(1)'"
+            >
+        </a>
 
         <!-- Botón para móviles -->
         <button
@@ -62,7 +51,20 @@
 
             <!-- Lista de enlaces -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+              <!-- Login -->
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/login']" style="
+                  color: #feffff;
+                  font-weight: 600;
+                  padding: 10px 16px;
+                  border-radius: 7px;
+                  transition: color 0.2s ease, background-color 0.2s ease;
+                  "
+                  onmouseover="this.style.color='#005187'; this.style.backgroundColor='#c4dafa'"
+                  onmouseout="this.style.color='#feffff'; this.style.backgroundColor='transparent'">
+                      Login
+                </a>
+              </li>
                 <!-- Inicio -->
                 <li class="nav-item">
                     <a class="nav-link" href="/" style="
@@ -105,21 +107,6 @@
                     onmouseover="this.style.color='#005187'; this.style.backgroundColor='#c4dafa'"
                     onmouseout="this.style.color='#feffff'; this.style.backgroundColor='transparent'">
                         Cubos
-                    </a>
-                </li>
-
-                <!-- PDF -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/pdf" style="
-                        color: #feffff;
-                        font-weight: 600;
-                        padding: 10px 16px;
-                        border-radius: 7px;
-                        transition: color 0.2s ease, background-color 0.2s ease;
-                    "
-                    onmouseover="this.style.color='#005187'; this.style.backgroundColor='#c4dafa'"
-                    onmouseout="this.style.color='#feffff'; this.style.backgroundColor='transparent'">
-                        pdf
                     </a>
                 </li>
 
@@ -173,20 +160,71 @@
                     </ul>
                 </li>
 
-                <!-- Elemento desactivado -->
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true" style="
-                        color: #84b6f4;
-                        font-weight: 500;
-                        padding: 10px 16px;
-                        opacity: 0.65;
-                    ">
-                        Disabled
+                @if (token){
+
+                  <li class="nav-item dropdown">
+
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="
+                            color: #feffff;
+                            font-weight: 600;
+                            padding: 10px 16px;
+                            border-radius: 7px;
+                            transition: color 0.2s ease, background-color 0.2s ease;
+                        "
+                        onmouseover="this.style.color='#005187'; this.style.backgroundColor='#c4dafa'"
+                        onmouseout="this.style.color='#feffff'; this.style.backgroundColor='transparent'"
+                    >
+                        Usuario
                     </a>
+
+                    <!-- Opciones desplegables -->
+                    <ul class="dropdown-menu" style="
+                        background-color: #feffff;
+                        border: 1px solid #84b6f4;
+                        border-radius: 10px;
+                        box-shadow: 0 5px 15px rgba(0, 81, 135, 0.15);
+                        padding: 8px;
+                    ">
+
+                        <li>
+                            <a class="dropdown-item" href="#" style="
+                                color: #005187;
+                                border-radius: 6px;
+                                padding: 9px 12px;
+                                transition: background-color 0.2s ease;
+                            "
+                            onmouseover="this.style.backgroundColor='#c4dafa'"
+                            onmouseout="this.style.backgroundColor='transparent'">
+                                Mi perfil
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="/compras" style="
+                                color: #005187;
+                                border-radius: 6px;
+                                padding: 9px 12px;
+                                transition: background-color 0.2s ease;
+                            "
+                            onmouseover="this.style.backgroundColor='#c4dafa'"
+                            onmouseout="this.style.backgroundColor='transparent'">
+                                Compras
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider" style="border-color: #84b6f4;">
+                        </li>
+                    </ul>
                 </li>
-
+                }
             </ul>
-
             <!-- Botón para cerrar sesión -->
             <button
                 (click)="logout()"
@@ -204,7 +242,7 @@
                 onmouseover="this.style.backgroundColor='#c4dafa'; this.style.color='#005187'"
                 onmouseout="this.style.backgroundColor='#4d82be'; this.style.color='#feffff'"
             >
-                logout
+                Cerrar sesión
             </button>
         </div>
     </div>

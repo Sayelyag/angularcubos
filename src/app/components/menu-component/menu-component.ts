@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cubos } from '../../models/cubos';
 import { ServiceCubos } from '../../services/service.cubos';
@@ -14,18 +14,19 @@ export class MenuComponent {
   public cubos! : Array<Cubos>
   public marcas: string[] = [];
   public marcasAbiertas = false;
+  public UsuarioAbierto = false;
   public token: string | null = null;
 
   constructor(
     private _router: Router,
-    private readonly serviceApi: ServiceCubos
+    private readonly serviceApi: ServiceCubos,
+    private _cdr: ChangeDetectorRef,
   ) {}
 
   async ngOnInit(): Promise<void> {
     if (typeof sessionStorage !== 'undefined') {
       this.token = sessionStorage.getItem('TOKEN');
     }
-
     try {
       this.marcas = await this.serviceApi.getMarcas();
     } catch (error) {
@@ -48,6 +49,11 @@ export class MenuComponent {
     this._router.navigate(['/marcas'], {
       queryParams: { marca },
     });
+
+  }
+
+  alternarUsuario(): void {
+    this.UsuarioAbierto = !this.UsuarioAbierto;
   }
 
   logout(): void {
