@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home-component/home-component';
 import { PdfComponent } from './components/pdf-component/pdf-component';
 import { AppRoutingModule } from './app-routing-module';
 import { ServiceCubos } from './services/service.cubos';
+import { LoginComponent } from './components/login-component/login-component';
+import { PerfilComponent } from './components/perfil-component/perfil-component';
+import { ComprasComponent } from './components/compras-component/compras-component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { ServiceCubos } from './services/service.cubos';
     CuboComponent,
     HomeComponent,
     PdfComponent,
+    LoginComponent,
+    PerfilComponent,
+    ComprasComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [

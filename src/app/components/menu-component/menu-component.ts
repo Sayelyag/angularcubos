@@ -14,6 +14,7 @@ export class MenuComponent {
   public cubos! : Array<Cubos>
   public marcas: string[] = [];
   public marcasAbiertas = false;
+  public token: string | null = null;
 
   constructor(
     private _router: Router,
@@ -21,6 +22,10 @@ export class MenuComponent {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    if (typeof sessionStorage !== 'undefined') {
+      this.token = sessionStorage.getItem('TOKEN');
+    }
+
     try {
       this.marcas = await this.serviceApi.getMarcas();
     } catch (error) {
@@ -43,5 +48,16 @@ export class MenuComponent {
     this._router.navigate(['/marcas'], {
       queryParams: { marca },
     });
+  }
+
+  logout(): void {
+
+    // Eliminamos el token del almacenamiento.
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.removeItem("TOKEN");
+    }
+    // Redirigimos al usuario al login.
+    this._router.navigate(["/login"]);
+
   }
 }
