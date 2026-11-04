@@ -40,7 +40,7 @@ export class MenuComponent {
   seleccionarMarca(event: Event, marca: string): void {
     event.preventDefault();
     this.marcasAbiertas = false;
-    this._router.navigate(['/cubos'], {
+    this._router.navigate(['/marcas'], {
       queryParams: { marca },
     });
   }

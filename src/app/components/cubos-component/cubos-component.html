@@ -12,7 +12,7 @@
                 letter-spacing: 1px;
             "
         >
-            {{ marcaSeleccionada ? 'Cubos de ' + marcaSeleccionada : 'Cubos de Rubik' }}
+             Cubos de Rubik
         </h1>
 
         <p style="color: #4d82be; font-size: 1.1rem;">
@@ -29,94 +29,8 @@
         ></div>
     </div>
 
-    <!-- Listado de cubos -->
-    <div class="row g-4 justify-content-center">
+    <p *ngIf="error" class="alert alert-danger">{{ error }}</p>
 
-        @for (cubo of cubos; track cubo) {
-
-            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-
-                <!-- Tarjeta -->
-                <div
-                    class="card h-100 border-0 rounded-4 text-center"
-                    style="
-                        background-color: #feffff;
-                        border: 1px solid #c4dafa !important;
-                        box-shadow: 0 5px 18px rgba(0, 81, 135, 0.12);
-                        overflow: hidden;
-                        transition: all 0.3s ease;
-                    "
-                    onmouseover="
-                        this.style.transform='translateY(-8px)';
-                        this.style.boxShadow='0 12px 28px rgba(0, 81, 135, 0.22)';
-                    "
-                    onmouseout="
-                        this.style.transform='translateY(0)';
-                        this.style.boxShadow='0 5px 18px rgba(0, 81, 135, 0.12)';
-                    "
-                >
-
-                    <!-- Imagen -->
-                    <div
-                        class="d-flex justify-content-center align-items-center p-4"
-                        style="
-                            background: linear-gradient(135deg, #c4dafa, #feffff);
-                            min-height: 190px;
-                        "
-                    >
-                        <img
-                            [src]="cubo.imagen"
-                            [alt]="cubo.nombre"
-                            style="
-                                height: 130px;
-                                max-width: 100%;
-                                object-fit: contain;
-                                transition: transform 0.3s ease;
-                            "
-                        >
-                    </div>
-
-                    <!-- Información -->
-                    <div class="card-body d-flex flex-column p-4">
-
-                        <h5
-                            class="fw-bold mb-3"
-                            style="
-                                color: #005187;
-                                font-size: 1.3rem;
-                            "
-                        >
-                            {{ cubo.nombre }}
-                        </h5>
-
-                        <div
-                            class="rounded-3 p-3 mb-3 text-start"
-                            style="background-color: #f1f7ff;"
-                        >
-                            <p class="mb-2" style="color: #4d82be;">
-                                <strong style="color: #005187;">
-                                    Marca:
-                                </strong>
-                                {{ cubo.marca }}
-                            </p>
-
-                            <p class="mb-0" style="color: #4d82be;">
-                                <strong style="color: #005187;">
-                                    Precio:
-                                </strong>
-                                {{ cubo.precio }} €
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        }
-
-    </div>
-
-    <!-- Componentes de cubos y favoritos -->
     <section class="mt-5">
 
         <h2

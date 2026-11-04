@@ -1,20 +1,23 @@
-<div class="min-h-screen bg-slate-100 p-6">
-    <div class="max-w-7xl mx-auto">
-        <h1 class="text-3xl font-extrabold text-center text-slate-900 mb-4">
-            {{ marcaSeleccionada ? 'Cubos de ' + marcaSeleccionada : 'Cubos de Rubik' }}
-        </h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            @for (cubo of cubos; track cubo) {
-                <div class="bg-slate-900 rounded-2xl shadow-lg overflow-hidden border border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition duration-300">
-                    <h1 class="text-2xl font-extrabold text-center text-white p-5 border-b-2 border-cyan-500">
-                        {{cubo.nombre}}
-                    </h1>
-                    <img
-                        class="w-full h-80 object-cover hover:scale-105 transition duration-500"
-                        src="{{cubo.imagen}}"
-                        alt="">
-                </div>
-            }
-        </div>
+<main class="container mt-5 mb-5">
+  <h1 class="text-center mb-4" style="color: #005187;">Marcas de cubos {{ marcaSeleccionada }}</h1>
+
+  <p *ngIf="error" class="alert alert-danger">{{ error }}</p>
+
+  <section *ngIf="marcaSeleccionada" class="mt-5">
+    <h2 class="mb-4" style="color: #005187;">
+      Cubos de {{ marcaSeleccionada }}
+    </h2>
+
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-lg-4" *ngFor="let cubo of cubos">
+        <article class="card h-100">
+          <img class="card-img-top p-3" [src]="cubo.imagen" [alt]="cubo.nombre">
+          <div class="card-body">
+            <h3 class="h5">{{ cubo.nombre }}</h3>
+            <p class="mb-0">{{ cubo.precio }} €</p>
+          </div>
+        </article>
+      </div>
     </div>
-</div>
+  </section>
+</main>

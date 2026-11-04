@@ -1,6 +1,7 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Cubos } from '../../models/cubos';
 import { ServiceCubos } from '../../services/service.cubos';
-import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-marcas-component',
@@ -8,32 +9,34 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrl: './marcas-component.css',
   templateUrl: './marcas-component.html',
 })
-export class MarcasComponent {
+export class MarcasComponent implements OnInit {
   public marcas: string[] = [];
+  public cubos: Cubos[] = [];
   public marcaSeleccionada: string | null = null;
-  public cubos: any[] = [];
-  public idCubo!: number;
+  public error = '';
+
   constructor(
     private readonly serviceCubos: ServiceCubos,
-    private _activateRoute : ActivatedRoute,
-    private _cdr : ChangeDetectorRef,
-    private _service : ServiceCubos
+    private readonly route: ActivatedRoute
   ) {}
 
-  // async ngOnInit(): Promise<void> {
-  //   try {
-  //     this.marcas = await this.serviceCubos.getMarcas();
-  //   } catch (error) {
-  //     console.error('No se pudieron cargar las marcas.', error);
-  //   }
-  // }
-
   async ngOnInit(): Promise<void> {
-    this._activateRoute.params.subscribe(async(params : Params)=> {
-      this.idCubo = parseInt(params['id']);
-      this.cubos = await this._service.getCubosMarca(String(this.idCubo));
-      this._cdr.detectChanges();
-    })
-
+    try {
+      this.marcas = await this.serviceCubos.getMarcas();
+      this.route.queryParamMap.subscribe(async params => {
+        this.marcaSeleccionada = params.get('marca');
+        try {
+          this.cubos = this.marcaSeleccionada
+            ? await this.serviceCubos.getCubosMarca(this.marcaSeleccionada)
+            : [];
+        } catch (error) {
+          this.error = 'No se pudieron cargar los cubos de la marca.';
+          console.error(this.error, error);
+        }
+      });
+    } catch (error) {
+      this.error = 'No se pudieron cargar las marcas.';
+      console.error(this.error, error);
+    }
   }
 }

@@ -5,7 +5,6 @@ import { App } from './app';
 import { MenuComponent } from './components/menu-component/menu-component';
 import { CubosComponent } from './components/cubos-component/cubos-component';
 import { MarcasComponent } from './components/marcas-component/marcas-component';
-import { ModelosComponent } from './components/modelos-component/modelos-component';
 import { CuboComponent } from './components/cubo-component/cubo-component';
 import { HomeComponent } from './components/home-component/home-component';
 import { PdfComponent } from './components/pdf-component/pdf-component';
@@ -18,7 +17,6 @@ import { ServiceCubos } from './services/service.cubos';
     MenuComponent,
     CubosComponent,
     MarcasComponent,
-    ModelosComponent,
     CuboComponent,
     HomeComponent,
     PdfComponent,

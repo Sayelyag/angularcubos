@@ -26,8 +26,8 @@ export class ServiceCubos{
         )
     }
 
-    async getCubo(id: number): Promise<Cubos>{
-        let endpoint = "api/Cubos/" + id;
+    async getCubo(idCubo: number): Promise<Cubos>{
+        let endpoint = "api/Cubos/" + idCubo;
         return firstValueFrom(
             this._http.get<Cubos>(this.url + endpoint)
         )
@@ -39,4 +39,5 @@ export class ServiceCubos{
             this._http.get<string[]>(this.url + endpoint)
         )
     }
+
 }

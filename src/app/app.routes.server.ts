@@ -3,7 +3,6 @@ import { MarcasComponent } from './components/marcas-component/marcas-component'
 import { PdfComponent } from './components/pdf-component/pdf-component';
 import { CubosComponent } from './components/cubos-component/cubos-component';
 import { CuboComponent } from './components/cubo-component/cubo-component';
-import { ModelosComponent } from './components/modelos-component/modelos-component';
 import { Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -12,5 +11,4 @@ const routes: Routes = [
   {path:"pdf", component : PdfComponent},
   {path:"cubos", component : CubosComponent},
   {path:"cubo", component : CuboComponent},
-  {path:"modelos", component : ModelosComponent},
 ];

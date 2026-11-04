@@ -55,30 +55,24 @@ https://apprubik.azurewebsites.net/
 
 
 
-ComentariosCubo
-
-GET
-​/api​/ComentariosCubo​/GetComentariosCubo​/{idcubo}
-
-
 Compra
 
-GET
-​/api​/Compra​/ComprasUsuario
-POST
-​/api​/Compra​/InsertarPedido​/{idcubo}
+ GET
+ ​/api​/Compra​/ComprasUsuario
+ POST
+ ​/api​/Compra​/InsertarPedido​/{idcubo}
 
 
 Cubos
 
-GET
-​/api​/Cubos
-GET
-​/api​/Cubos​/CubosMarca​/{marca}
-GET
-​/api​/Cubos​/Marcas
-GET
-​/api​/Cubos​/{id}
+ GET
+ ​/api​/Cubos
+ GET
+ ​/api​/Cubos​/CubosMarca​/{marca}
+ GET
+ ​/api​/Cubos​/Marcas
+ GET
+ ​/api​/Cubos​/{id}
 
 
 
