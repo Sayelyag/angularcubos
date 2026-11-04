@@ -1,0 +1,92 @@
+PRACTICA FULL STACK ANGULAR
+Debemos entregar un proyecto en Angular aunque no esté finalizado.
+El diseño se realizará con Tailwind
+Podemos utilizar la IA para nuestros diseños.
+Las imágenes que vemos son orientativas
+Nota: Los Ids no importan, se generan solos en el servicio, pero debemos enviarlos en los JSON que los necesiten.
+Las fechas igual, no importa lo que pongamos, las genera el servicio, pero debemos enviarlas
+El servicio para consumir se encuentra en la siguiente dirección URL. (EQUIPO A)
+https://apitiendacubos2025a.azurewebsites.net/
+URL de acceso opcional (EQUIPO B):
+https://apitiendacubos2025b.azurewebsites.net/
+Al iniciar la aplicación, veremos en Home todos los cubos
+Cada Cubo será un hijo con su propio template.  Podremos seleccionar un Cubo favorito y lo veremos en el Parent (Comunicación Padre Hijo e Hijo Padre).
+Interfaz de usuario gráfica, Aplicación, Word
+Descripción generada automáticamente
+En el menú de nuestra aplicación, tendremos que cargar las Marcas de los cubos
+Interfaz de usuario gráfica, Texto, Aplicación, Word
+Descripción generada automáticamente
+Interfaz de usuario gráfica, Texto, Aplicación, Chat o mensaje de texto
+Descripción generada automáticamente
+Filtraremos por marca y mostraremos los datos de los cubos
+Interfaz de usuario gráfica, Aplicación
+Descripción generada automáticamente
+Diagrama
+Descripción generada automáticamente
+Zona seguridad
+Tendremos la posibilidad de validarnos con un usuario
+Interfaz de usuario gráfica
+Descripción generada automáticamente con confianza media
+Interfaz de usuario gráfica, Aplicación
+Descripción generada automáticamente
+Los mails son user1@mail.com,.. hasta user6@mail.com y sus contraseñas son todas las mismas 12345
+También tendremos la posibilidad de darnos de alta con nuestro propio usuario
+Tendremos tres acciones a realizar una vez que tenemos el TOKEN.
+Ver nuestro Perfil
+Interfaz de usuario gráfica, Aplicación
+Descripción generada automáticamente
+Interfaz de usuario gráfica, Aplicación
+Descripción generada automáticamente
+Ver nuestras compras
+Interfaz de usuario gráfica, Texto, Aplicación
+Descripción generada automáticamente
+Realizar una compra (con TOKEN)
+Interfaz de usuario gráfica
+Descripción generada automáticamente con confianza media
+Debemos también incluir la funcionalidad para Cerrar sesión del usuario
+Debemos hacer la funcionalidad incluyendo las siguientes arquitecturas:
+Guards
+Interceptors: Error y Authorization
+Signals: Para los cambios de menú dinámico, es decir, veremos nuestro usuario e imagen de perfil en el menú al hacer Login, al cerrar sesión, también veremos los cambios.
+PDF: Quiero poder generar un informe en PDF con las compras de mi usuario.
+Toast para mensajes de Error o cualquier tipo deseado en la aplicación
+Funcionalidad de la aplicación más o menos sin Signals:
+https://apprubik.azurewebsites.net/
+
+
+
+ComentariosCubo
+
+GET
+​/api​/ComentariosCubo​/GetComentariosCubo​/{idcubo}
+
+
+Compra
+
+GET
+​/api​/Compra​/ComprasUsuario
+POST
+​/api​/Compra​/InsertarPedido​/{idcubo}
+
+
+Cubos
+
+GET
+​/api​/Cubos
+GET
+​/api​/Cubos​/CubosMarca​/{marca}
+GET
+​/api​/Cubos​/Marcas
+GET
+​/api​/Cubos​/{id}
+
+
+
+Manage
+
+GET
+​/api​/Manage​/PerfilUsuario
+POST
+​/api​/Manage​/Login
+POST
+​/api​/Manage​/RegistroUsuario

@@ -1,0 +1,19 @@
+.cubo-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #d5e4f7;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(0, 81, 135, 0.12);
+}
+
+.cubo-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+}
+
+.cubo-card-body {
+  padding: 1rem;
+}

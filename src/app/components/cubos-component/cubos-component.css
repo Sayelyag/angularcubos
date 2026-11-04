@@ -1,0 +1,16 @@
+.cubos-page {
+  padding: 2rem;
+}
+
+.cubos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.favorito {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 2px solid #84b6f4;
+  border-radius: 8px;
+}

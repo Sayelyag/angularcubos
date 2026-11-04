@@ -1,0 +1,11 @@
+<article *ngIf="cubo" class="cubo-card">
+  <img [src]="cubo.imagen" [alt]="cubo.nombre">
+  <div class="cubo-card-body">
+    <h2>{{ cubo.nombre }}</h2>
+    <p>{{ cubo.marca }} · {{ cubo.modelo }}</p>
+    <p>{{ cubo.precio | currency:'EUR' }}</p>
+    <button type="button" class="btn btn-primary" (click)="seleccionarFavorito()">
+      Elegir como favorito
+    </button>
+  </div>
+</article>
